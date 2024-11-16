@@ -2,7 +2,7 @@
 
 ### Define Your Game State
 
-Think about the game state that are permanante and you want to store on the blockchain.
+Think about the parts of your game state that are permanent and you want to store on the blockchain.
 
 Define those states in terms of `u64` numbers inside `definition.rs`
 
@@ -23,10 +23,10 @@ pub struct SpinGameStates {
 
 ```
 
-For example, in the demo there're 2 states, `total_steps` and `current_position`
+For example, in the demo there are 2 states: `total_steps` and `current_position`
 
 {% hint style="success" %}
-Remember to update STATE\_SIZE when number of state changes
+Remember to update STATE\_SIZE when number of state changes.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -35,17 +35,13 @@ Make sure to only use SpinGameStates to stored global states.
 
 ### Define the Gameplay
 
-Spin currently only supports game architecture by utilizing 3 functions.&#x20;
-
-These functions will interface with the ZK prover and frontend.
-
-You can find the functions at&#x20;
+This basic demo game utilizes just three functions. These functions will interface with the ZK prover and frontend. You can find the functions at:
 
 `gameplay/provable_game_logic/src/gameplay.rs`
 
 #### Initialize the Game
 
-Prepare the game to start, the input args is the `SpinGameStates` you defined in form of a vector of `u64`
+Prepares the game to start. The input args is the `SpinGameStates` you defined in form of a vector of `u64`.
 
 <pre class="language-rust"><code class="lang-rust"><strong>// gameplay/provable_game_logic/src/gameplay.rs
 </strong>fn initialize_game(args: Vec&#x3C;u64>) {
@@ -57,7 +53,7 @@ Prepare the game to start, the input args is the `SpinGameStates` you defined in
 
 #### Process a Step in the Game
 
-when the player performs an action and moves to the next step of the game. Step should be state mutating.
+When the player performs an action and moves to the next step of the game. This action should update the state.
 
 ```rust
 // gameplay/provable_game_logic/src/gameplay.rs
@@ -88,7 +84,7 @@ fn step(input: u64) {
 
 #### Read the Game State
 
-A viewable function that gets the current state.&#x20;
+A viewable function that gets the current state.
 
 ```rust
 // gameplay/provable_game_logic/src/gameplay.rs
@@ -102,11 +98,11 @@ fn get_game_state() -> Vec<u64> {
 
 ## Advanced
 
-### Define Game States That Doesn't Go On-Chain
+### Define Game States that Won't Live On-Chain
 
-If you want to define any states that only exists within the game session and won't go on-chain. You can do this by adjusting your `STATE_SIZE` variable and adjust the `get_game_state` and `initialize_game` accordingly.&#x20;
+If you want to define any states that only exist within the game session and won't go on-chain, you can do this by adjusting your `STATE_SIZE` variable and adjusting the `get_game_state` and `initialize_game` accordingly.
 
-The caveat here is the frontend won't have access to these states not returned through `get_game_state` anymore. However, we have plan to add dedicated `get_onchain_game_state` in the future to allow that.
+The caveat here is the frontend won't have access to these states not returned through `get_game_state` anymore. However, we have plan to add a dedicated `get_onchain_game_state` method in the future to allow that.
 
 
 

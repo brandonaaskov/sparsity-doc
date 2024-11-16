@@ -6,7 +6,7 @@ This database is expensive to write, but relatively cheap to read.
 
 
 
-We have seen we can generate proves, wether in OPZK or Zk only implementation of zkSpin. When writing the states to the blockchain, we'll need to provide those proves.&#x20;
+We have seen we can generate proofs, whether in OPZK or ZK only implementation of zkSpin. When writing the states to the blockchain, we'll need to provide those proves.&#x20;
 
 
 
@@ -113,7 +113,7 @@ async function submit_to_operator(
             typeof v === "bigint" ? v.toString() : v
         ),
     })
-    
+
     const data = await response.json();
     return data;
 }

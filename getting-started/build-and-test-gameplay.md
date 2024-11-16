@@ -14,9 +14,9 @@ Make you have Rust installed
 cd gameplay/ && cargo run
 ```
 
-This will open a terminal prompt for playing the game.&#x20;
+This will open a terminal prompt for playing the game.
 
-All states and inputs are in form of `u64`&#x20;
+All states and inputs are in the form of `u64`.
 
 ### Build Gameplay Image
 
@@ -28,9 +28,7 @@ zkspin build-image gameplay/provable_game_logic
 
 <summary>What was built?</summary>
 
-This will build 3 WASM packages, one for use inside Node.js, one for use inside Browser, and one for the zk prover.&#x20;
-
-You could check these out in folder `gameplay/export/js` and `gameplay/export/wasm`
+This will build 3 WASM packages, one for use with Node (`js`), one for use inside the browser (`wasm`), and one for the ZK prover (`src`).
 
 </details>
 
@@ -60,8 +58,7 @@ zkspin dry-run gameplay/provable_game_logic ../../zkwasm/target/debug/zkwasm-cli
     --action 0,1,1,1,1
 ```
 
-In the example above, we set the initial state to `total_step` to 10 and `current_position` to 1. The order correspond to how the `initialize_game` function is written.
-
+In the example above, we set the initial state of `total_step` to 10 and `current_position` to 1. The order corresponds to how the `initialize_game` function is written.
 
 
 ### Publish Gameplay Image
@@ -72,7 +69,7 @@ This step will publish the image to a cloud prover. Currently the cloud prover i
 zkspin publish-image gameplay/provable_game_logic/
 ```
 
-Image Commitment, Image MD5 Hash will be printed
+The image's MD5 hash and image commitments will be printed on screen.
 
 {% hint style="success" %}
 Save the Image Commitments, MD5 hashes, and Game ID.&#x20;
@@ -82,10 +79,7 @@ Save the Image Commitments, MD5 hashes, and Game ID.&#x20;
 
 <summary>OPZK only</summary>
 
-The above step only publish the image to the cloud prover. If you want to also publish the game on-chain. \
-
-
-Game ID will only be printed if on-chain parameters are setup. This game ID is an on-chain ID.
+The above step only publishes the image to the cloud prover. The Game ID will only be printed if on-chain parameters are setup: the Game ID is an on-chain ID. To publish the game on-chain:
 
 {% code overflow="wrap" %}
 ```

@@ -20,7 +20,7 @@ Setting up a new project template
 {% endtab %}
 {% endtabs %}
 
-The above command will create a scaffold for a small demo gameplay with two components and an extremely simple demo game called grid-walk.
+The above command will create two folders for an extremely simple game called grid-walk: a React `frontend` folder, and a provable `gameplay` folder written in Rust.
 
 <details>
 
@@ -28,49 +28,29 @@ The above command will create a scaffold for a small demo gameplay with two comp
 
 This game has two variables, `total_step_count` and `current_position`
 
-A valid move to left or right will increase the step count. While the moves are only valid if the positions are with in 0..10&#x20;
+A valid move to left or right will increase the step count, while the moves are only valid if the positions are between 0 and 10.
 
 </details>
 
 
 
-### Provable Gamplay Scaffold
+### The Gameplay Folder
 
 {% hint style="info" %}
-The frontend should not contain not meaningful gameplay logic, they should be written inside the provable gameplay in Rust.
+The frontend should not contain not meaningful gameplay logic. That should be written inside the provable gameplay in Rust.
 {% endhint %}
 
-A Rust project that contains provable gameplay logic.
-
-<details>
-
-<summary>Quickly test out the gameplay in terminal</summary>
 
 `cd <folder-name>/gameplay && cargo run`\
 \
-First you'll need to enter the intial states. In this demo-game, it's two u64 numbers, enter them one by one. The first number represent the total step count and second number represent the current position.
+First you'll need to enter the initial states. In this demo game, it's two `u64` numbers: enter them one by one. The first number represents the total step count and second number represents the current position.
 
-
-
-Then you'll be prompted to enter the gameplay commands.
+You'll then be prompted to enter the gameplay commands.
 
 Enter 0 for going left, enter 1 for going right.
 
-</details>
 
-### Frontend Scaffold
-
-This files are under
-
-```
-<project-name>/frontend
-```
-
-A barebone React project served with Vite.js.
-
-<details>
-
-<summary>Quickly test out the frontend</summary>
+### The Frontend Folder
 
 1. Build the ZK image\
    `zkspin build-image gameplay/provable_game_logic/`
@@ -85,8 +65,6 @@ A barebone React project served with Vite.js.
     `npm run dev`
 
 `Note that the everything is local so far. Nothing on-chain yet.`
-
-</details>
 
 
 

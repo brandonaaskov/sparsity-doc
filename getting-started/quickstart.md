@@ -18,11 +18,11 @@ npm install --global @zkspin/sdk
 npm update --global @zkspin/sdk
 ```
 
-### Install Rust & Dependencies for writing ZK provable gameplay
+### Install Rust & Dependencies for writing ZK provable game state
 
 * Rust [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
 * wasm-pack [https://rustwasm.github.io/wasm-pack/installer/](https://rustwasm.github.io/wasm-pack/installer/)
-* [zkwasm-cli](https://github.com/DelphinusLab/zkWasm?tab=readme-ov-file#install-instructions) - \[optional] only for used to dry-run ZK image
+* [zkwasm-cli](https://github.com/DelphinusLab/zkWasm?tab=readme-ov-file#install-instructions) - \[optional] only used to dry-run the ZK image
 
 
 
